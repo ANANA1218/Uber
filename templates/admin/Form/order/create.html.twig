@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ajouter une commande
+		</title>
+	</head>
+	<body>
+
+		<h1>Ajouter une commande
+		</h1>
+
+		{% if app.flashes('success') is not empty %}
+			<div>{{ app.flashes('success') }}</div>
+		{% endif %}
+
+		{{ form_start(form) }}
+		{{ form_row(form.membre) }}
+		{{ form_row(form.vehicule) }}
+		{{ form_row(form.date_heure_depart) }}
+		{{ form_row(form.date_heure_fin) }}
+		{{ form_row(form.prix_total) }}
+
+		{{ form_end(form) }}
+
+	</body>
+</html>

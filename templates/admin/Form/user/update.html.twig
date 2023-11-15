@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Modifier un utilisateur</title>
+		<!-- Inclure Bootstrap CSS ou tout autre CSS pour la mise en forme -->
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container mt-4">
+			<h1>Modifier un utilisateur</h1>
+
+			{% if app.flashes('success') is not empty %}
+				<div class="alert alert-success" role="alert">
+					{{ app.flashes('success') }}
+				</div>
+			{% endif %}
+
+			{{ form_start(form) }}
+			<div class="form-group">
+				{{ form_label(form.pseudo, 'Pseudo') }}
+				{{ form_widget(form.pseudo, {'attr': {'class': 'form-control'}}) }}
+			</div>
+
+			<div class="form-group">
+				{{ form_label(form.mdp, 'Mot de passe') }}
+				{{ form_widget(form.mdp, {'attr': {'class': 'form-control'}}) }}
+			</div>
+
+			<div class="form-group">
+				{{ form_label(form.nom, 'Nom') }}
+				{{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+			</div>
+
+			<div class="form-group">
+				{{ form_label(form.prenom, 'Prénom') }}
+				{{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+			</div>
+
+			<div class="form-group">
+				{{ form_label(form.email, 'Email') }}
+				{{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+			</div>
+
+			<div class="form-group">
+				{{ form_label(form.civilite, 'Civilité') }}
+				{{ form_widget(form.civilite, {'attr': {'class': 'form-control'}}) }}
+			</div>
+
+			<div class="form-group">
+				{{ form_label(form.status, 'Status') }}
+				{{ form_widget(form.status, {'attr': {'class': 'form-control'}}) }}
+			</div>
+
+			<button type="submit" class="btn btn-primary">Modifier</button>
+			{{ form_end(form) }}
+		</div>
+	</body>
+</html>

@@ -25,9 +25,7 @@ class Commande
     #[ORM\Column(name: "prix_total", type: "integer")]
     private int $prixTotal;
 
-    #[ORM\Column(name: "date_enregistrement", type: "datetime")]
-    private \DateTimeInterface $dateEnregistrement;
-
+   
     #[ORM\ManyToOne(targetEntity: Membre::class)]
     #[ORM\JoinColumn(name: "id_membre", referencedColumnName: "id", nullable: false)]
     private Membre $membre;
@@ -76,16 +74,7 @@ class Commande
         return $this;
     }
 
-    public function getDateEnregistrement(): \DateTimeInterface
-    {
-        return $this->dateEnregistrement;
-    }
 
-    public function setDateEnregistrement(\DateTimeInterface $dateEnregistrement): self
-    {
-        $this->dateEnregistrement = $dateEnregistrement;
-        return $this;
-    }
 
     public function getMembre(): Membre
     {
@@ -108,4 +97,7 @@ class Commande
         $this->vehicule = $vehicule;
         return $this;
     }
+
+
+    
 }

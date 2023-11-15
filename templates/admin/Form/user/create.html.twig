@@ -1,0 +1,27 @@
+{# templates/vehicle/create.html.twig #}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ajouter un User</title>
+	</head>
+	<body>
+
+		<h1>Ajouter un User</h1>
+
+		{% if app.flashes('success') is not empty %}
+			<div>{{ app.flashes('success') }}</div>
+		{% endif %}
+
+		{{ form_start(form) }}
+		{{ form_row(form.pseudo) }}
+		{{ form_row(form.mdp) }}
+		{{ form_row(form.nom) }}
+		{{ form_row(form.prenom) }}
+		{{ form_row(form.email) }}
+		{{ form_row(form.civilite) }}
+		{{ form_row(form.status) }}
+		{{ form_end(form) }}
+
+	</body>
+</html>

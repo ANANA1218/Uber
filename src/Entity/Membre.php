@@ -35,9 +35,9 @@ class Membre
     #[ORM\Column]
     private ?int $status = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_enregistrement = null;
+   
 
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -127,15 +127,5 @@ class Membre
         return $this;
     }
 
-    public function getDateEnregistrement(): ?\DateTimeInterface
-    {
-        return $this->date_enregistrement;
-    }
 
-    public function setDateEnregistrement(\DateTimeInterface $date_enregistrement): static
-    {
-        $this->date_enregistrement = $date_enregistrement;
-
-        return $this;
-    }
 }

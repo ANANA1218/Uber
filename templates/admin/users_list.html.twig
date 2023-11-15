@@ -1,5 +1,3 @@
-{# templates/admin/users_list.html.twig #}
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,20 +13,44 @@
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-
 			</div>
 		</nav>
+
 		<h1>Liste des utilisateurs</h1>
 
-		<ul>
-			{% for membre in membres %}
-				<li>{{ membre.id }}
-					-
-					{{ membre.nom }}
-					-
-					{{ membre.email }}</li>
-			{% endfor %}
-		</ul>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nom</th>
+					<th>Email</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for membre in membres %}
+					<tr>
+						<td>{{ membre.id }}</td>
+						<td>{{ membre.nom }}</td>
+						<td>{{ membre.email }}</td>
+						<td>
+							<!-- Actions pour les utilisateurs -->
+							<a href="{{ path('show_users', {id: membre.id}) }}" class="btn btn-info">Voir</a>
+							<a href="{{ path('update_users', {id: membre.id}) }}" class="btn btn-warning">Modifier</a>
+							<a href="#" onclick="event.preventDefault(); if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) { document.getElementById('delete-form-{{ membre.id }}').submit(); }" class="btn btn-danger">Supprimer</a>
 
+							<!-- Formulaire de suppression (caché) -->
+							<form id="delete-form-{{ membre.id }}" action="{{ path('delete_users', {'id': membre.id}) }}" method="POST" style="display: none;">
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ membre.id) }}">
+							</form>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<!-- Ajout du bouton pour créer un nouvel utilisateur -->
+		<a href="{{ path('create_users') }}" class="btn btn-primary">Ajouter un utilisateur</a>
 	</body>
 </html>

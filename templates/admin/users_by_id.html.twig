@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Détails de l'utilisateur</title>
+		<!-- Inclure Bootstrap CSS -->
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+
+		<div class="container">
+			<h1>Détails de l'utilisateur</h1>
+			{% if user %}
+				<p>ID:
+					{{ user.id }}</p>
+				<p>Nom:
+					{{ user.nom }}</p>
+				<p>Prénom:
+					{{ user.prenom }}</p>
+				<p>Email:
+					{{ user.email }}</p>
+				<!-- Autres détails de l'utilisateur -->
+			{% else %}
+				<p>Aucun utilisateur trouvé.</p>
+			{% endif %}
+		</div>
+
+		<!-- Inclure Bootstrap JS -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	</body>
+</html>
