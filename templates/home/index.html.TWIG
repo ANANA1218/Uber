@@ -5,6 +5,29 @@
 	<head>
 		<title>Navbar avec Bootstrap</title>
 		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Recherche de Véhicules</title>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			/* Styles pour l'image en arrière-plan */
+			body {
+				background: url('https://img.freepik.com/photos-premium/trafic-roue-technologie-classique-automobile-moderne_665346-119.jpg') no-repeat center center fixed;
+				background-size: cover;
+				height: 100%;
+			}
+
+			/* Styles pour le formulaire */
+			.search-form {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background-color: rgba(255, 255, 255, 0.8);
+				padding: 20px;
+				border-radius: 5px;
+			}
+		</style>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,6 +44,16 @@
 				</ul>
 			</div>
 		</nav>
+
+		<!-- Formulaire de recherche -->
+		<div class="container search-form">
+			<h2>Recherche de Véhicules</h2>
+			<form action="{{ path('search_vehicles') }}" method="GET">
+
+				<button type="submit" class="btn btn-primary">Rechercher</button>
+			</form>
+		</div>
+
 
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

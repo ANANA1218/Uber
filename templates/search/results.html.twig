@@ -1,0 +1,34 @@
+<!-- search/results.html.twig -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- ... -->
+	</head>
+	<body>
+
+		<h1>Résultats de la recherche</h1>
+
+		{% if disponibilite == 1 %}
+			<h2>Véhicules disponibles</h2>
+			<ul>
+				{% for vehicule in vehicles %}
+					{% if vehicule.disponibilite == 1 %}
+						<li>{{ vehicule.nom }}</li>
+						<!-- Affichez les autres détails du véhicule -->
+					{% endif %}
+				{% endfor %}
+			</ul>
+		{% elseif disponibilite == 0 %}
+			<h2>Véhicules non disponibles</h2>
+			<ul>
+				{% for vehicule in vehicles %}
+					{% if vehicule.disponibilite == 0 %}
+						<li>{{ vehicule.nom }}</li>
+						<!-- Affichez les autres détails du véhicule -->
+					{% endif %}
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+	</body>
+</html>
