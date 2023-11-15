@@ -35,9 +35,36 @@ class Membre
     #[ORM\Column]
     private ?int $status = null;
 
-   
+    #[ORM\Column(type: 'boolean')]
+    private bool $role = false; 
 
     
+
+    #[ORM\Column(name: "date_enregistrement", type: "datetime")]
+    private \DateTimeInterface $dateEnregistrement;
+
+
+    public function __construct()
+    {
+        $this->dateEnregistrement = new \DateTime(); // Date d'enregistrement définie lors de la création de la commande
+    }
+
+    
+    public function getDateEnregistrement(): \DateTimeInterface
+    {
+        return $this->dateEnregistrement;
+    }
+
+    public function setDateEnregistrement(\DateTimeInterface $dateEnregistrement): self
+    {
+        $this->dateEnregistrement = $dateEnregistrement;
+        return $this;
+    }
+
+
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -127,5 +154,15 @@ class Membre
         return $this;
     }
 
+    public function getRole(): bool
+    {
+        return $this->role;
+    }
+
+    public function setRole(bool $role): self
+    {
+        $this->role = $role;
+        return $this;
+    }
 
 }

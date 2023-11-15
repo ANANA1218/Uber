@@ -9,10 +9,6 @@
 
 		<h1>Ajouter un véhicule</h1>
 
-		{% if app.flashes('success') is not empty %}
-			<div>{{ app.flashes('success')[0] }}</div>
-		{% endif %}
-
 		{{ form_start(form) }}
 		{{ form_row(form.titre) }}
 		{{ form_row(form.marque) }}

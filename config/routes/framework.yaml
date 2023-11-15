@@ -6,7 +6,7 @@ when@dev:
 
 home: ## nom de la route
     path: / ## url 
-    controller: App\Controller\VehiculeController::getAllVehicles
+    controller: App\Controller\HomeController::index
 
 
 
@@ -55,7 +55,7 @@ orders_list:
     # ...
 
 create_commande:
-    path: '/admin/user/create'
+    path: '/admin/commande/create'
     controller: 'App\Controller\AdminController::createCommande'
     # ...
 

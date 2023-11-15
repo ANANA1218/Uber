@@ -10,12 +10,6 @@
 			<h1>Modifier une commande
 			</h1>
 
-			{% if app.flashes('success') is not empty %}
-				<div class="alert alert-success" role="alert">
-					{{ app.flashes('success')[0] }}
-				</div>
-			{% endif %}
-
 			{{ form_start(form) }}
 
 			<div class="form-group">

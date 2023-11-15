@@ -34,6 +34,30 @@ class Commande
     #[ORM\JoinColumn(name: "id_vehicule", referencedColumnName: "id", nullable: false)]
     private Vehicule $vehicule;
 
+
+    #[ORM\Column(name: "date_enregistrement", type: "datetime")]
+    private \DateTimeInterface $dateEnregistrement;
+
+
+    public function __construct()
+    {
+        $this->dateEnregistrement = new \DateTime(); // Date d'enregistrement définie lors de la création de la commande
+    }
+
+    
+    public function getDateEnregistrement(): \DateTimeInterface
+    {
+        return $this->dateEnregistrement;
+    }
+
+    public function setDateEnregistrement(\DateTimeInterface $dateEnregistrement): self
+    {
+        $this->dateEnregistrement = $dateEnregistrement;
+        return $this;
+    }
+
+
+
     // Les getters et setters pour les nouveaux champs
 
     public function getId(): ?int

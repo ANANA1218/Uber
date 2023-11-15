@@ -32,7 +32,34 @@ class Vehicule
     #[ORM\Column]
     private ?int $prix_journalier = null;
 
-   
+    #[ORM\Column(type: 'boolean')]
+    private bool $disponibilite = true; // Par défaut, le véhicule est disponible
+
+
+    #[ORM\Column(name: "date_enregistrement", type: "datetime")]
+    private \DateTimeInterface $dateEnregistrement;
+
+
+    public function __construct()
+    {
+        $this->dateEnregistrement = new \DateTime(); // Date d'enregistrement définie lors de la création de la commande
+    }
+
+    
+    public function getDateEnregistrement(): \DateTimeInterface
+    {
+        return $this->dateEnregistrement;
+    }
+
+    public function setDateEnregistrement(\DateTimeInterface $dateEnregistrement): self
+    {
+        $this->dateEnregistrement = $dateEnregistrement;
+        return $this;
+    }
+
+
+
+
 
     public function getId(): ?int
     {
@@ -110,5 +137,14 @@ class Vehicule
         return $this;
     }
 
-   
+    public function getDisponibilite(): bool
+    {
+        return $this->disponibilite;
+    }
+
+    public function setDisponibilite(bool $disponibilite): self
+    {
+        $this->disponibilite = $disponibilite;
+        return $this;
+    }
 }

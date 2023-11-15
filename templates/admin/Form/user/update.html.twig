@@ -9,12 +9,6 @@
 		<div class="container mt-4">
 			<h1>Modifier un utilisateur</h1>
 
-			{% if app.flashes('success') is not empty %}
-				<div class="alert alert-success" role="alert">
-					{{ app.flashes('success') }}
-				</div>
-			{% endif %}
-
 			{{ form_start(form) }}
 			<div class="form-group">
 				{{ form_label(form.pseudo, 'Pseudo') }}
