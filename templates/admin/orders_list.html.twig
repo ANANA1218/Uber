@@ -1,5 +1,3 @@
-{# templates/admin/orders_list.html.twig #}
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,20 +13,41 @@
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-
 			</div>
 		</nav>
+
 		<h1>Liste des commandes</h1>
 
-		<ul>
-			{% for commande in commandes %}
-				<li>{{ commande.id }}
-					-
-					{{ commande.date_heure_depart }}
-					-
-					{{ commande.date_heure_fin }}</li>
-			{% endfor %}
-		</ul>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Date et heure de départ</th>
+					<th>Date et heure de fin</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for commande in commandes %}
+					<tr>
+						<td>{{ commande.id }}</td>
+						<td>{{ commande.date_heure_depart }}</td>
+						<td>{{ commande.date_heure_fin }}</td>
+						<td>
+							<a href="{{ path('show_commande', {id: commande.id}) }}" class="btn btn-info">Voir</a>
+							<a href="{{ path('update_commande', {id: commande.id}) }}" class="btn btn-warning">Modifier</a>
+							<a href="#" onclick="event.preventDefault(); if (confirm('Êtes-vous sûr de vouloir supprimer cette commande ?')) { document.getElementById('delete-form-{{ commande.id }}').submit(); }" class="btn btn-danger">Supprimer</a>
+
+							<!-- Formulaire de suppression (caché) -->
+							<form id="delete-form-{{ commande.id }}" action="{{ path('delete_commande', {'id': commande.id}) }}" method="POST" style="display: none;">
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ commande.id) }}">
+							</form>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 
 	</body>
 </html>

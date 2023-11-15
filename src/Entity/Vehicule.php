@@ -32,8 +32,7 @@ class Vehicule
     #[ORM\Column]
     private ?int $prix_journalier = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_enregistrement = null;
+   
 
     public function getId(): ?int
     {
@@ -44,11 +43,10 @@ class Vehicule
     {
         return $this->titre;
     }
-
-    public function setTitre(string $titre): static
+    
+    public function setTitre(?string $titre): static
     {
         $this->titre = $titre;
-
         return $this;
     }
 
@@ -57,7 +55,7 @@ class Vehicule
         return $this->marque;
     }
 
-    public function setMarque(string $marque): static
+    public function setMarque(?string $marque): static
     {
         $this->marque = $marque;
 
@@ -69,7 +67,7 @@ class Vehicule
         return $this->modele;
     }
 
-    public function setModele(string $modele): static
+    public function setModele(?string $modele): static
     {
         $this->modele = $modele;
 
@@ -81,7 +79,7 @@ class Vehicule
         return $this->description;
     }
 
-    public function setDescription(string $description): static
+    public function setDescription(?string $description): static
     {
         $this->description = $description;
 
@@ -93,7 +91,7 @@ class Vehicule
         return $this->photo;
     }
 
-    public function setPhoto(string $photo): static
+    public function setPhoto(?string $photo): static
     {
         $this->photo = $photo;
 
@@ -105,22 +103,12 @@ class Vehicule
         return $this->prix_journalier;
     }
 
-    public function setPrixJournalier(int $prix_journalier): static
+    public function setPrixJournalier(?int $prix_journalier): static
     {
         $this->prix_journalier = $prix_journalier;
 
         return $this;
     }
 
-    public function getDateEnregistrement(): ?\DateTimeInterface
-    {
-        return $this->date_enregistrement;
-    }
-
-    public function setDateEnregistrement(\DateTimeInterface $date_enregistrement): static
-    {
-        $this->date_enregistrement = $date_enregistrement;
-
-        return $this;
-    }
+   
 }

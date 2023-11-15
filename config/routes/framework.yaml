@@ -9,29 +9,83 @@ home: ## nom de la route
     controller: App\Controller\VehiculeController::getAllVehicles
 
 
-show_vehicule:
-    path: '/vehicule/{id}'
-    controller: 'App\Controller\VehiculeController::showVehicule'
-
-
-
-
 
 homeAdmin: ## nom de la route
     path: /admin ## url 
     controller: App\Controller\AdminController::adminHome
 
+
+## vehicule
 vehicules_list:
     path: '/admin/vehicules'
     controller: 'App\Controller\AdminController::vehiculesList'
     # ...
+show_vehicule:
+    path: '/vehicule/{id}'
+    controller: 'App\Controller\VehiculeController::showVehicule'
+
+
+create_vehicule:
+    path: '/admin/vehicule/create'
+    controller: 'App\Controller\AdminController::createVehicule'
+    # ...
+
+update_vehicule:
+    path: '/admin/vehicule/{id}/update'
+    controller: 'App\Controller\AdminController::updateVehicule'
+    # ...
+
+
+delete_vehicule:
+    path: '/admin/vehicule/{id}/delete'
+    controller: 'App\Controller\AdminController::deleteVehicule'
+   
+
+
+## commande
+
+show_commande:
+    path: '/commande/{id}'
+    controller: 'App\Controller\AdminController::showCommande'
+
 
 orders_list:
     path: '/admin/orders'
     controller: 'App\Controller\AdminController::ordersList'
     # ...
 
+
+update_commande:
+    path: '/admin/commande/{id}/update'
+    controller: 'App\Controller\AdminController::updateCommande'
+    # ...
+
+delete_commande:
+    path: '/admin/commande/{id}/delete'
+    controller: 'App\Controller\AdminController::deleteCommande'
+   
+
+
+
+
+## members
+
 users_list:
     path: '/admin/users'
     controller: 'App\Controller\AdminController::usersList'
     # ...
+
+show_users:
+    path: '/user/{id}'
+    controller: 'App\Controller\AdminController::showUser'
+
+
+update_users:
+    path: '/admin/user/{id}/update'
+    controller: 'App\Controller\AdminController::updateUser'
+    # ...
+
+delete_users:
+    path: '/admin/user/{id}/delete'
+    controller: 'App\Controller\AdminController::deleteUser'
+   
