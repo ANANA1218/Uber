@@ -1,0 +1,29 @@
+{# templates/vehicule/index.html.twig #}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Liste des véhicules</title>
+		<!-- Inclure Bootstrap CSS -->
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+
+		<div class="container">
+			<h1>Liste des véhicules</h1>
+			<ul class="list-group">
+				{% for vehicule in vehicules %}
+					<li class="list-group-item">
+						{{ vehicule.marque }}
+						-
+						{{ vehicule.modele }}
+						<a href="{{ path('show_vehicule', {'id': vehicule.id}) }}" class="btn btn-primary btn-sm">Détails</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+		<!-- Inclure Bootstrap JS -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	</body>
+</html>

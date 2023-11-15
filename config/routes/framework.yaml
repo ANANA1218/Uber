@@ -3,3 +3,35 @@ when@dev:
         resource: '@FrameworkBundle/Resources/config/routing/errors.xml'
         prefix: /_error
 
+
+home: ## nom de la route
+    path: / ## url 
+    controller: App\Controller\VehiculeController::getAllVehicles
+
+
+show_vehicule:
+    path: '/vehicule/{id}'
+    controller: 'App\Controller\VehiculeController::showVehicule'
+
+
+
+
+
+homeAdmin: ## nom de la route
+    path: /admin ## url 
+    controller: App\Controller\AdminController::adminHome
+
+vehicules_list:
+    path: '/admin/vehicules'
+    controller: 'App\Controller\AdminController::vehiculesList'
+    # ...
+
+orders_list:
+    path: '/admin/orders'
+    controller: 'App\Controller\AdminController::ordersList'
+    # ...
+
+users_list:
+    path: '/admin/users'
+    controller: 'App\Controller\AdminController::usersList'
+    # ...
