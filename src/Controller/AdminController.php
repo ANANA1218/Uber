@@ -128,6 +128,7 @@ class AdminController extends AbstractController
  */
 public function updateVehicule(Request $request, EntityManagerInterface $entityManager, Vehicule $vehicule): Response
 {
+    
     // Création du formulaire pré-rempli avec les données du véhicule à mettre à jour
     $form = $this->createFormBuilder($vehicule)
         ->add('titre', TextType::class)
@@ -138,7 +139,6 @@ public function updateVehicule(Request $request, EntityManagerInterface $entityM
         ->add('prixJournalier', NumberType::class)
         ->add('save', SubmitType::class, ['label' => 'Modifier'])
         ->getForm();
-
     // Gérer la soumission du formulaire
     $form->handleRequest($request);
 

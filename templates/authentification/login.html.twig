@@ -1,0 +1,24 @@
+{# templates/auth/login.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion
+{% endblock %}
+
+{% block body %}
+	<h1>Connexion</h1>
+
+	{% if error %}
+		<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+	{% endif %}
+
+	<form action="{{ path('app_login') }}" method="post">
+		<label for="email ">Nom d'utilisateur :</label>
+		<input type="text" id="email " name="email " value="{{ email }}" required>
+
+		<label for="mdp">Mot de passe :</label>
+		<input type="mdp" id="mdp" name="mdp" required>
+
+		<button type="submit">Se connecter</button>
+	</form>
+{% endblock %}

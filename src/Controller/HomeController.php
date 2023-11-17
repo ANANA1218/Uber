@@ -28,7 +28,7 @@ public function index(): Response
 
    
     /**
-     * @Route("/search/vehicles", name="search_vehicles")
+     * @Route("/vehicles", name="search_vehicles")
      */
     public function searchVehicles(Request $request): Response
     {
@@ -36,7 +36,7 @@ public function index(): Response
         
 
         // Assurez-vous que la disponibilité est égale à 1 pour rechercher
-        if ($disponibilite === "1") {
+        if ($disponibilite === 1) {
             // Faites la logique de recherche des véhicules avec les dates ici...
             // Exemple: Recherchez les véhicules disponibles dans votre repository
             $vehicles = $this->vehiculeRepository->findByDisponibilite(1);

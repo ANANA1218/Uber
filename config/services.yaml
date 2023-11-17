@@ -21,5 +21,16 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+
+
+security:
+    # Autres configurations de sécurité...
+
+    firewalls:
+        main:
+            # Autres configurations de votre pare-feu...
+
+            entry_point: 'App\Security\AuthentificationAuthenticator'  # Remplacez ceci par le nom de votre authenticator approprié
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

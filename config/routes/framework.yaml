@@ -98,10 +98,12 @@ delete_users:
     path: '/admin/user/{id}/delete'
     controller: 'App\Controller\AdminController::deleteUser'
    
-## search 
+
+app_login:
+    path: '/login'
+    controller: 'App\Controller\SecurityController::login'
 
 
-search_vehicles:
-    path: '/search/vehicles'
-    controller: 'App\Controller\HomeController::searchVehicles'
-    # ...
+app_register:
+    path: '/register'
+    controller: 'App\Controller\RegistrationController::register'

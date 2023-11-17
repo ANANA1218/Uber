@@ -5,9 +5,12 @@ namespace App\Entity;
 use App\Repository\MembreRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+
+
 
 #[ORM\Entity(repositoryClass: MembreRepository::class)]
-class Membre
+class Membre implements UserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -164,5 +167,24 @@ class Membre
         $this->role = $role;
         return $this;
     }
+
+    public function getRoles(): array
+    {
+        return ['ROLE_USER']; // Vous pouvez modifier les rôles selon vos besoins
+    }
+
+    public function eraseCredentials()
+    {
+        // Si vous avez des données sensibles à effacer, vous pouvez le faire ici
+        // Par exemple, réinitialiser temporairement le mot de passe en mémoire
+        $this->mdp = null;
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return (string)$this->email; // Retournez l'identifiant unique de l'utilisateur
+    }
+
+
 
 }
